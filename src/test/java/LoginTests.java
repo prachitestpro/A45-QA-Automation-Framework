@@ -20,6 +20,21 @@ public class LoginTests extends BaseTest {
         String url = "https://bbb.testpro.io/";
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
+
+       /* @Test(enabled = true, priority = 1, description = "Login with Valid Email and Password Test")
+        public void LoginValidEmailPasswordTest() {
+
+//      LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+        loginPage.provideEmail("prachi.gupta01@testpro.io")
+                  .providePassword("te$t$tudent1")
+                  .clickSubmitBtn();
+
+
+            Assert.assertTrue(homePage.getUserAvatar().isDisplayed());*/
+
         driver.quit();
+
     }
 }
