@@ -7,10 +7,11 @@
         <classes>
             <class name="LoginTests"/>
             <class name="BaseTest"/>
-            <class name="Homework18"/>
-            <Methods>
-                <include name="loginValidEmailPasswordTest"/>
-            </Methods>
+            <class name="Homework18">
+            <methods>
+                <include name="playSongTest"/>
+            </methods>
+            </class>
         </classes>
     </test>
 </suite>
