@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.testng.annotations.*;
@@ -14,6 +15,7 @@ import java.time.Duration;
 import java.util.UUID;
 
 public class BaseTest {
+    static WebDriverWait wait;
 
     public static WebDriver driver = null;
 
@@ -47,6 +49,8 @@ public class BaseTest {
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
+
+        wait = new WebDriverWait(driver,Duration.ofSeconds(20));
         actions = new Actions(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(url);
@@ -69,14 +73,17 @@ public class BaseTest {
 
     public void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
-        emailField.click();//not needed
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[type='email']"))).click();
+
+       // emailField.click();//not needed
         emailField.clear();
         emailField.sendKeys(email);
     }
 
     public void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
-        passwordField.click();//not needed
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[type='password']"))).click();
+       // passwordField.click();//not needed
         passwordField.clear();
         passwordField.sendKeys(password);
     }
