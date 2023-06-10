@@ -19,7 +19,7 @@ public class BaseTest {
 
     public static WebDriver driver = null;
 
-    public static String url = "https://bbb.testpro.io/";
+    public static String url = "https://qa.koel.app/";
 
     public Actions actions = null;
 
